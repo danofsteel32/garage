@@ -1,0 +1,7 @@
+<div id="garage-status" sse-swap="StatusUpdate">
+{% if status.sensor_down %}
+    <p><span style="color:red;">WARNING!</span> sensor appears to be down</p>
+{% endif %}
+    <p>Last Reading: {{ status.timestamp.strftime("%Y-%m-%d %H:%M:%S") }}</p>
+    <p><span style="color:{{ status.color }};"> {{ status.state }} </span> {{ status.dist }} inches</p>
+</div>

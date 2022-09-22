@@ -1,0 +1,13 @@
+[Unit]
+Description=Garage door distance sensor
+
+[Service]
+EnvironmentFile=/home/dan/.config/systemd/user/garage-env
+ExecStart=/usr/bin/python /home/dan/sensor.py
+Environment=PYTHONUNBUFFERED=1
+Restart=on-failure
+RestartSec=30
+Type=simple
+
+[Install]
+WantedBy=default.target

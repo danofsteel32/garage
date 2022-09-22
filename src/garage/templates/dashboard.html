@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/MVP.css') }}">
+  <title>Garage</title>
+  <!-- <link rel="icon" href="/favicon.ico"> -->
+  <!-- <link rel="icon" href="/favicon.svg" type="image/svg+xml"> -->
+  <!-- <link rel="apple-touch-icon" href="/apple-touch-icon.png"> -->
+</head>
+<body>
+  <div hx-ext="sse" sse-connect="/garage/sse">
+  {% include 'status_partial.jinja' %}
+  </div>
+  <script src="{{ url_for('static', filename='js/htmx/htmx.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/htmx/ext/sse.js') }}"></script>
+</body>
+</html>

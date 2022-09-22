@@ -1,0 +1,13 @@
+[Unit]
+Description=Garage door server
+
+[Service]
+EnvironmentFile=/home/garage/.config/systemd/user/garage-env
+WorkingDirectory=/home/garage
+ExecStart=/home/garage/venv/bin/python -m hypercorn garage.server:app --bind='127.0.0.1:8081'
+Restart=on-failure
+RestartSec=30
+Type=simple
+
+[Install]
+WantedBy=default.target

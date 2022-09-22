@@ -1,0 +1,39 @@
+[build-system]
+requires = [
+    "setuptools>=61.0.0",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "garage"
+version = "0.1.0"
+description = "Simple webpage for checking if my garage is open"
+readme = "README.md"
+authors = [{name = "Dan Davis", email = "dan@dandavis.dev"}]
+license = { file = "COPYING" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU Affero General Public License v3",
+]
+keywords = ["sensor", "distance", "garage", "HC-SR04", "raspberry-pi"]
+dependencies = [
+    "aiosqlite",
+    "httpx",
+    "typing_extensions",
+    "quart",
+]
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+dev = ["black", "flake8", "flake8-isort", "mypy", "pytest", "pytest-asyncio"]
+
+[project.urls]
+Homepage = "https://github.com/danofsteel32/garage"
+
+[tool.isort]
+line_length = 88
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
