@@ -6,15 +6,15 @@ from garage.status import Status, get_last_status, save_status
 
 
 def test_garage_open():
-    status = Status.new(100.0)
-    assert status.color == "green"
-    assert status.state == "Closed"
-
-
-def test_garage_closed():
     status = Status.new(50.0)
     assert status.color == "red"
     assert status.state == "OPEN!"
+
+
+def test_garage_closed():
+    status = Status.new(100.0)
+    assert status.color == "green"
+    assert status.state == "Closed"
 
 
 def test_sensor_down():
