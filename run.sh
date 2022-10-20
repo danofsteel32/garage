@@ -82,7 +82,7 @@ clean() {
 }
 
 tests() {
-    wrapped-python -m pytest -rP src/tests/
+    wrapped-python -m pytest -rA tests
 }
 
 deploy-sensor() {
@@ -102,6 +102,10 @@ deploy-server() {
     clean && build
     local _wheel
     _wheel=$(get-wheel)
+    if [[ ! -f "${_wheel}" ]]; then
+        echo "No wheel file! Cannot deploy-server"
+        return 1
+    fi
     scp config/* "${SERVER_USER}@${SERVER_SSH_HOST}:/home/${SERVER_USER}/.config/systemd/user/"
     scp dist/"${_wheel}" "${SERVER_SSH_HOST}:/tmp/"
     local commands=(

@@ -1,2 +1,3 @@
 graft src
+prune src/garage/static
 include COPYING
